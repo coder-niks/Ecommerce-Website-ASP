@@ -1,0 +1,32 @@
+﻿body {
+}
+
+*
+{
+    padding:0px; margin:0px;
+}
+#header
+{
+    height:90px; width:1000px;  background-color:Red; margin:0px auto;
+}
+#menu
+{
+     height:40px; width:1000px; background:Maroon; margin:0px auto;
+}
+#menu a
+{
+    color:White; padding:10px;
+}
+#content
+{
+    width:1000px;  margin:0px auto; padding:20px 0px;
+}
+#footer
+{
+    height:40px; width:1000px;  background-color:Green; margin:0px auto;
+     line-height:40px;
+}                                                                       
+#footer p
+{
+    color:Highlight; text-align:center;
+}

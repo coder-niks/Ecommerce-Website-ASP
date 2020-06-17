@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="header">
+    <table  align="right">
+    <tr>
+    <td>
+    <asp:LoginName ID="LoginName1" runat="server" /> </td>
+    <td> 
+     <div> <asp:LoginStatus ID="LoginStatus1" runat="server" /> </div>  </td>
+    </tr>
+    </table>
+    <div>
+    <h1>Shoppingkart </h1>
+    </div>
+    </div>
+    <div id="menu">
+        <table >
+            <tr>
+                <td>
+                    <a href="index.aspx">HOME</a>
+                </td>
+                <td>
+                    <a href="AddNewCategory.aspx">ADD NEW CATEGORY</a>
+                </td>
+                <td>
+                    <a href="AddNewSubCategory.aspx"> ADD NEW SUB CATEGORY </a>
+                </td>
+                <td>
+                    <a href="AddNewProduct.aspx"> ADD NEW  PRODUCT </a>
+                </td>
+                <td>
+                    <a href="ProductDetail.aspx"> PRODUCT DETAILS </a>
+                </td>
+            </tr> 
+        </table>
+    </div>
+    <div id="content">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="footer">
+        <p>
+            all right reserved with Admin-2015</p>
+    </div>
+    </form>
+</body>
+</html>

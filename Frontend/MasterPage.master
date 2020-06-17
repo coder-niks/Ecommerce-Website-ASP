@@ -1,0 +1,192 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>E-Commerce</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:200,300,400,600,700'
+        rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700'
+        rel='stylesheet' type='text/css' />
+    <link href='css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="css/camera.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+ <a href="index.aspx" class="active" </a> 
+<h1>India's largest Online Marketplace</h1>
+    <form id="form1" runat="server">
+    <div class="page-container">
+        <div class="header">
+            <div class="navbar container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a href="index.aspx" class="navbar-brand">
+                        <img src="image/logo.png" alt="">
+                        ShoppingKart </a>
+                </div>
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.aspx">Home</a></li>
+                        <li><a href="about.aspx">About US</a></li>
+                        <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="subcategory.aspx?id=20">
+                            Men<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                                    <ItemTemplate>
+                                        <li><a href="product.aspx?id=<%#Eval("SubCategoryId") %>>">
+                                            <%#Eval("SubCategoryName")%></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:db_EcomConnectionString %>"
+                                    SelectCommand="SELECT [CategoryId], [SubCategoryName], [SubCategoryId], [SubCatPhoto], [ShortDescription], [Description], [Status], [Remark] FROM [TblSubCategory] where CategoryId='6'">
+                                </asp:SqlDataSource>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="subcategory.aspx?id=21">
+                            Women<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource2">
+                                    <ItemTemplate>
+                                        <li><a href="product.aspx?id=<%#Eval("SubCategoryId") %>>">
+                                            <%#Eval("SubCategoryName")%></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:db_EcomConnectionString %>"
+                                    SelectCommand="SELECT [CategoryId], [SubCategoryName], [SubCategoryId], [SubCatPhoto], [ShortDescription], [Description], [Status], [Remark] FROM [TblSubCategory] where CategoryId='7'">
+                                </asp:SqlDataSource>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="product.aspx">
+                            Latest Offer<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <asp:Repeater ID="Repeater3" runat="server" DataSourceID="SqlDataSource3">
+                                    <ItemTemplate>
+                                        <li><a href="product.aspx?id=<%#Eval("SubCategoryId") %>>">
+                                            <%#Eval("SubCategoryName")%></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:db_EcomConnectionString %>"
+                                    SelectCommand="SELECT [CategoryId], [SubCategoryName], [SubCategoryId], [SubCatPhoto], [ShortDescription], [Description], [Status], [Remark] FROM [TblSubCategory] where CategoryId='8'">
+                                </asp:SqlDataSource>
+                            </ul>
+                        </li>
+                        <li><a href="contact.aspx" class="ajax_right">Contact </a></li>
+                        <li><a href="Admin.aspx" class="ajax_right">Login </a></li>
+                    </ul>
+                    <ul class="nav navbar-right cart">
+                        <li class="dropdown"></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+        </div>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="footer black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div>
+                            <h3>
+                                Information</h3>
+                            <ul>
+                                <li><a href="about.aspx">About Us</a></li>
+                                <li><a href="">Delivery Information</a></li>
+                                <li><a href="">Privacy Policy</a></li>
+                                <li><a href="">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div>
+                            <h3>
+                                Customer Service</h3>
+                            <ul>
+                                <li><a href="contact.aspx" class="ajax_right">Contact Us</a></li>
+                                <li><a href="">Returns</a></li>
+                                <li><a href="">Site Map</a></li>
+                                <li><a href="">Shipping</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-3 social">
+                        <div class="copy">
+                            Design and Develop By &copy; Naresh</div>
+                        <ul class="social-network">
+                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href=""><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href=""><i class="fa fa-rss"></i></a></li>
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/sapphire.js"></script>
+    <script>
+        $(document).ready(function () {
+            jQuery('#slideshow0 > div').camera({
+                alignment: "center",
+                autoAdvance: true,
+                mobileAutoAdvance: true,
+                barDirection: "leftToRight",
+                barPosition: "bottom",
+                cols: 6,
+                easing: "easeInOutExpo",
+                mobileEasing: "easeInOutExpo",
+                fx: "random",
+                mobileFx: "random",
+                gridDifference: 250,
+                height: "auto",
+                hover: true,
+                loader: "pie",
+                loaderColor: "#eeeeee",
+                loaderBgColor: "#222222",
+                loaderOpacity: 0.3,
+                loaderPadding: 2,
+                loaderStroke: 7,
+                minHeight: "200px",
+                navigation: true,
+                navigationHover: true,
+                mobileNavHover: true,
+                opacityOnGrid: false,
+                overlayer: true,
+                pagination: true,
+                pauseOnClick: true,
+                playPause: true,
+                pieDiameter: 38,
+                piePosition: "rightTop",
+                portrait: false,
+                rows: 4,
+                slicedCols: 12,
+                slicedRows: 8,
+                slideOn: "random",
+                thumbnails: false,
+                time: 7000,
+                transPeriod: 1500,
+                imagePath: 'image/'
+            });
+        });
+    </script>
+    </form>
+</body>
+</html>
