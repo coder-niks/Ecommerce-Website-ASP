@@ -1,2 +1,1 @@
-# Ecommerce
-Shopping Website
+# Ecommerce Shopping Website
